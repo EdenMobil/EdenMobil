@@ -9,6 +9,7 @@ class TestSensory:
         color_value = self.color_sensor.color()
         self.text[0] = str(color_value)
 
+    # Only the angle or the speed can be shown
     def angle(self):
         angle_value = self.gyro_sensor.angle()
         self.text[1] = "Angle: " + str(angle_value) + "°"
@@ -18,8 +19,8 @@ class TestSensory:
         self.text[2] = "Speed: " + str(speed_value) + " deg/s"
 
     def show(self):
-        self.ev3.screen.clear()  # Clear the screen
+        self.ev3.screen.clear()
         for line in self.text:
-            if line:  # Only print lines that are not empty
+            if line:
                 self.ev3.screen.print(line)
                 self.ev3.screen.print("---")
